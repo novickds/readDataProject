@@ -49,12 +49,15 @@ for (i in 1:nrow(mshar)) {if (mshar$Act[i]==1) {mshar$Activity[i]<-"Walking"}
                     else {mshar$Activity[i]<-"Laying"}
 }
 
+## rearrange the table so that the Activity variable is the second column
 ind<-3:(ncol(mshar)-1)
 indd<-c(1,ncol(mshar),ind)
 new_mshar<-mshar[,indd]
 
 ## 4. Label the data set with descriptive variable names
+## take the labels from the features file
 ## Remove the "()-" and "()" from the variable names and change "BodyBody" to "Body"
+## to make the variable names more descriptive
 
 names<-features$V2[smeanstd]
 temp<-sub("\\()-","",names)
