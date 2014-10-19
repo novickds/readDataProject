@@ -16,3 +16,26 @@ Read Data Course Project Files
 This project includes the R script called run_analysis.R which reads in the UCIHAR data and 
 creates a tidy data set of means of the mean and standard devation data.
 A codebook called Codebook.md
+
+Program Highlights
+1. Merge the training and test sets to create one data set
+The program reads in the training and test data. 
+The data read is the subject, activity and the 561 varibles measured.
+The data is read from the UCIHAR directory within the current working directory.
+
+2. Extract only the measurements on the mean and standard deviation for each measurement
+The program figures out which variables are means or standard deviation calculations by searching for
+mean() or std(). Other variables that contain the words mean/Mean or std are not used.
+A new table is created with only these variables and the subject and activity variables.
+
+3. Use descriptive activity names to name the activities in the data set
+The activity is recoded to be a label rather than number. Values are walking, walking upstairs,
+walking downstairs, sitting, standing and laying.
+
+4. Label the data set with descriptive variable names
+The symbols "()-" and "()" were removed from the variable names and "BodyBody" was changed to "Body".
+
+5. From the data set in step 4, create a second, independent tidy data set with the 
+average of each variable for each activity and each subject.
+
+To do this, the summarise_each function was used thanks to Peter Sali who suggested this in the Forum.
